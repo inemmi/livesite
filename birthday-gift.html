@@ -385,6 +385,37 @@ background-color: rgb(225, 175, 93);
             }
         }
     </style>
+     <style>
+        .loading-gif {
+            max-width: 500px;
+        }
+
+        .pre-loader {
+            position: fixed;
+            z-index: 100; /** make sure this is the highest value compared to all other divs **/
+            top: 0;
+            left: 0;
+            background: #191f26;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+        }
+
+        .pre-loader.hidden {
+            animation: fadeOut 5s; /** change to 1s */
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes fadeOut {
+            100% {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+    </style>
+
     <center>
         
         <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjeRdKwDKG3tHPi3yF8q26YfOFdqvPhe1Zr4jamXzPCjXmZ_uN_9yfl-LGKmYvLhvE_1f3ZQ0XPAyaXKzr6U_eWL5EIMYeLeQP2tCJ-Le30lP-BAcCeBkJuaSr7SfzYIj994WJac0v8UC8n2NU6NABLE05AcDjx_-ok_ySoxZO4sATM3LlDlZoU3MusS9T/s1254/1000367856.png" alt="Free-Data" style="width: 100%;">
@@ -412,7 +443,12 @@ background-color: rgb(225, 175, 93);
         <div id="intro">
 
             <p class="welcome">
-               
+
+ <body>
+    <div class='pre-loader'>
+    <img class='loading-gif' alt='loading' src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5fz-92FIcKeRB4535aP7eSmVXVGbNIogwT3Yu3u2rlvogValNX41LmROnoLJcgXHHii-Q_zVlNQffLHm4CS6e1wqRHuS8yhnmKJR59xXNPDCXBYeER1197X9EFMqNE9Sn7-CMEtm_lgOMR8O5uuBIy42RJ5_cdKkyUI1cSqVYUvGkJlx7sQGaeRpdQQnw/s1536/Birthday_Poster_Animated.gif"/>
+</div>
+
 
 
 
@@ -616,7 +652,13 @@ background-color: rgb(225, 175, 93);
     saved = "",
     share = "whatsapp://send?text="+text1;
 </script>
+    
+<script type='text/javascript'>
+    window.addEventListener('load', function () {
+        document.querySelector('.pre-loader').className += ' hidden';
+    });
 </script>
+
            <script>
     window.onhashchange=function(){jp();};
     function hh() {history.pushState(history.length+1, "message", "#"+new Date().getTime());}
